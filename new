@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SDN Tamansareh 2</title>
+  <meta name="description" content="Website resmi SDN Tamansareh 2 - Ramah anak, profesional, dan informatif.">
+  <style>
+    :root{
+      --blue:#0b76d1;
+      --green:#2fb573;
+      --bg:#f6fbff;
+      --card:#ffffff;
+      --muted:#666;
+      --radius:12px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#123; line-height:1.45}
+    .container{max-width:var(--maxw);margin:0 auto;padding:20px}
+    header{background:linear-gradient(90deg,var(--blue),var(--green));color:white;padding:18px 0;border-bottom-left-radius:20px;border-bottom-right-radius:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;background:rgba(255,255,255,0.18);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+    nav a{color:white;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.12)}
+    main{padding:28px 0}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center}
+    .hero-card{background:var(--card);padding:18px;border-radius:16px;box-shadow:0 6px 18px rgba(10,20,30,0.06)}
+    .slogan{font-size:22px;font-weight:700;color:var(--blue);margin:0}
+    .school-info{color:var(--muted);margin-top:8px}
+    .photo{width:100%;height:220px;border-radius:12px;object-fit:cover}
+    .section{margin-top:28px}
+    .section h2{display:flex;align-items:center;gap:12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{background:var(--card);padding:14px;border-radius:14px;box-shadow:0 6px 18px rgba(10,20,30,0.05)}
+    .muted{color:var(--muted)}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-primary{background:var(--blue);color:white}
+    .btn-green{background:var(--green);color:white}
+    .profiles{display:flex;flex-wrap:wrap;gap:12px}
+    .teacher{display:flex;gap:12px;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#e3f2ff,#e6fff0);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--blue)}
+    footer{margin-top:36px;padding:18px 0;color:var(--muted)}
+    /* responsive */
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr}
+      nav{justify-content:center}
+    }
+    /* admin controls */
+    .admin-bar{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--blue),var(--green));color:white;padding:12px;border-radius:14px;box-shadow:0 10px 30px rgba(10,20,30,0.18);z-index:50}
+    .hidden{display:none}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+    .gallery-grid img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+    .editable{outline:2px dashed rgba(11,118,209,0.12);padding:6px;border-radius:6px}
+    .login-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,8,15,0.45);z-index:60}
+    .modal-card{background:white;padding:22px;border-radius:12px;width:320px;box-shadow:0 12px 30px rgba(10,20,30,0.3)}
+    .input{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef7;margin-top:10px}
+    .small{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo">SD</div>
+        <div>
+          <div style="font-weight:800;font-size:20px">SDN Tamansareh 2</div>
+          <div style="font-size:13px" class="small">Sekolah Dasar yang ramah, kreatif, dan inovatif</div>
+        </div>
+      </div>
+      <nav style="margin-top:12px">
+        <a href="#beranda">Beranda</a>
+        <a href="#profil">Profil Sekolah</a>
+        <a href="#program">Program & Kurikulum</a>
+        <a href="#berita">Berita & Kegiatan</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#guru">Guru & Staf</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#" id="loginBtn" style="background:rgba(255,255,255,0.12)">Login Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- BERANDA -->
+    <section id="beranda" class="section hero">
+      <div class="hero-card">
+        <h1 class="slogan">"Belajar Ceria, Tumbuh Berkualitas"</h1>
+        <p class="school-info" id="beranda-desc">SDN Tamansareh 2 berkomitmen menyediakan pendidikan dasar yang menyenangkan, aman, dan berorientasi pada pengembangan karakter serta kompetensi abad 21.</p>
+        <p class="muted">Jam sekolah: Senin - Jumat | 07:00 - 13:00</p>
+        <div style="margin-top:12px">
+          <a class="btn btn-primary" href="#kontak">Hubungi Sekolah</a>
+          <a class="btn btn-green" href="#program">Lihat Program</a>
+        </div>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1586769852836-6b1891d3b0f7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Foto Sekolah" class="photo" id="foto-sekolah">
+      </div>
+    </section>
+
+    <!-- PROFIL SEKOLAH -->
+    <section id="profil" class="section">
+      <h2>Profil Sekolah</h2>
+      <div class="card" style="margin-top:12px">
+        <h3>Visi</h3>
+        <p id="visi">Menjadi sekolah dasar unggulan yang berkarakter, berprestasi, dan melek teknologi.</p>
+        <h3>Misi</h3>
+        <ul id="misi">
+          <li>Mengembangkan karakter dan kepribadian siswa melalui pembelajaran aktif.</li>
+          <li>Mendorong kreativitas dan inovasi dalam pembelajaran, termasuk integrasi coding dan AI.</li>
+          <li>Menyelenggarakan kegiatan yang mendukung kesehatan dan kebugaran siswa.</li>
+        </ul>
+        <h3>Sejarah Singkat</h3>
+        <p id="sejarah">SDN Tamansareh 2 berdiri pada tahun 1985, berawal dari sebuah rumah belajar yang kemudian berkembang menjadi sekolah dasar yang melayani masyarakat setempat.</p>
+        <h3>Struktur Organisasi</h3>
+        <p id="struktur">Kepala Sekolah - Wakil - Guru Kelas - Guru Mapel - Tenaga Kependidikan</p>
+      </div>
+    </section>
+
+    <!-- PROGRAM & KURIKULUM -->
+    <section id="program" class="section">
+      <h2>Program & Kurikulum</h2>
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h3>Kurikulum</h3>
+          <p id="kurikulum">Mengimplementasikan Kurikulum Merdeka dengan pendekatan pembelajaran mendalam, proyek, dan integrasi teknologi.</p>
+        </div>
+        <div class="card">
+          <h3>Program Unggulan</h3>
+          <p id="unggulan">Kegiatan literasi, numerasi, coding untuk anak, ekstrakurikuler robotik, dan seni.</p>
+        </div>
+        <div class="card">
+          <h3>Inovasi Pembelajaran</h3>
+          <p id="inovasi">Integrasi Komputasional: pengenalan konsep coding sederhana, penggunaan alat bantu digital, dan pengantar AI untuk guru dan siswa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BERITA & KEGIATAN -->
+    <section id="berita" class="section">
+      <h2>Berita & Kegiatan</h2>
+      <div class="grid" style="margin-top:12px">
+        <article class="card">
+          <h3 contenteditable="false" id="news1-title">Pentas Seni Siswa</h3>
+          <p id="news1">Siswa menampilkan pentas seni dalam rangka perayaan Hari Pendidikan Nasional.</p>
+        </article>
+        <article class="card">
+          <h3 id="news2-title">Lomba Matematika Antar Kelas</h3>
+          <p id="news2">Tim sekolah meraih juara harapan 1 pada lomba matematika tingkat kecamatan.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri" class="section">
+      <h2>Galeri</h2>
+      <div class="card" style="margin-top:12px">
+        <div class="gallery-grid" id="gallery">
+          <img src="https://images.unsplash.com/photo-1531219432768-0a5a8b0b1f7f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="kegiatan1">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="kegiatan2">
+          <img src="https://images.unsplash.com/photo-1535905748047-14a7b07f3f4b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="kegiatan3">
+        </div>
+        <div style="margin-top:12px">
+          <h4>Video Kegiatan</h4>
+          <div style="position:relative;padding-top:56.25%">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border-radius:10px"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GURU & STAF -->
+    <section id="guru" class="section">
+      <h2>Guru & Staf</h2>
+      <div class="profiles" style="margin-top:12px">
+        <div class="card teacher">
+          <div class="avatar">AR</div>
+          <div>
+            <div style="font-weight:700">Aris R.</div>
+            <div class="small muted">Kepala Sekolah</div>
+          </div>
+        </div>
+        <div class="card teacher">
+          <div class="avatar">SD</div>
+          <div>
+            <div style="font-weight:700">Siti D.</div>
+            <div class="small muted">Guru Kelas 5</div>
+          </div>
+        </div>
+        <div class="card teacher">
+          <div class="avatar">RH</div>
+          <div>
+            <div style="font-weight:700">Rina H.</div>
+            <div class="small muted">Guru PJOK</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="section">
+      <h2>Kontak</h2>
+      <div class="card" style="margin-top:12px;display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+        <div style="flex:1;min-width:240px">
+          <p><strong>Alamat:</strong> Jl. Tamansareh No. 12, Kecamatan, Kabupaten</p>
+          <p><strong>Telepon:</strong> (021) 555-1234</p>
+          <p><strong>Email:</strong> info@sdtamansareh2.sch.id</p>
+          <p><strong>Jam Kerja:</strong> Senin - Jumat, 07:00 - 15:00</p>
+          <p><a class="btn btn-green" href="https://wa.me/6281234567890?text=Halo%20SDN%20Tamansareh%202%20saya%20ingin%20bertanya" target="_blank">Hubungi via WhatsApp</a></p>
+        </div>
+        <div style="flex:1;min-width:280px">
+          <iframe title="peta" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126915.123456789!2d106.7!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDEyJzAwLjAiTiAxMDZCDQowMCcwMC4wIl0!5e0!3m2!1sid!2sid!4v1620000000000" style="width:100%;height:220px;border:0;border-radius:10px"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section">
+      <div class="muted">© SDN Tamansareh 2 • Dibuat untuk tujuan sekolah dasar • Tampilan ramah anak</div>
+    </footer>
+  </main>
+
+  <!-- admin bar -->
+  <div id="adminBar" class="admin-bar hidden">
+    <div id="adminName">Admin aktif</div>
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button class="btn" id="toggleEdit">Aktifkan Edit</button>
+      <button class="btn" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+
+  <!-- login modal -->
+  <div id="loginModal" class="login-modal hidden">
+    <div class="modal-card">
+      <h3>Login Admin</h3>
+      <p class="small">Masukkan kata sandi admin untuk mengedit halaman website.</p>
+      <input id="pwd" class="input" type="password" placeholder="Kata sandi">
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button class="btn btn-primary" id="doLogin">Login</button>
+        <button class="btn" id="cancelLogin">Batal</button>
+      </div>
+      <p class="small" style="margin-top:10px">* Kata sandi default: <strong>admin</strong></p>
+    </div>
+  </div>
+
+  <script>
+    // Simple admin login (client-side). Password is 'admin' as requested.
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const doLogin = document.getElementById('doLogin');
+    const cancelLogin = document.getElementById('cancelLogin');
+    const pwd = document.getElementById('pwd');
+    const adminBar = document.getElementById('adminBar');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const toggleEdit = document.getElementById('toggleEdit');
+    let editing = false;
+
+    loginBtn.addEventListener('click', ()=>{ loginModal.classList.remove('hidden'); pwd.value=''; pwd.focus(); });
+    cancelLogin.addEventListener('click', ()=> loginModal.classList.add('hidden'));
+
+    doLogin.addEventListener('click', ()=>{
+      if(pwd.value === 'admin'){
+        localStorage.setItem('sdt_admin','true');
+        loginModal.classList.add('hidden');
+        showAdminBar();
+        alert('Login berhasil — mode edit tersedia');
+      } else {
+        alert('Kata sandi salah');
+      }
+    });
+
+    function showAdminBar(){
+      adminBar.classList.remove('hidden');
+    }
+    function hideAdminBar(){
+      adminBar.classList.add('hidden');
+    }
+    if(localStorage.getItem('sdt_admin')==='true') showAdminBar();
+
+    logoutBtn.addEventListener('click', ()=>{
+      localStorage.removeItem('sdt_admin');
+      hideAdminBar();
+      disableEditing(true);
+      alert('Anda telah logout');
+    });
+
+    toggleEdit.addEventListener('click', ()=>{
+      editing = !editing; disableEditing(!editing);
+      toggleEdit.textContent = editing ? 'Simpan Perubahan' : 'Aktifkan Edit';
+    });
+
+    function disableEditing(dis){
+      const editableIds = ['beranda-desc','foto-sekolah','visi','misi','sejarah','struktur','kurikulum','unggulan','inovasi','news1-title','news1','news2-title','news2'];
+      editableIds.forEach(id=>{
+        const el = document.getElementById(id);
+        if(!el) return;
+        if(!dis && localStorage.getItem('sdt_admin')==='true'){
+          el.contentEditable = true; el.classList.add('editable');
+        } else {
+          el.contentEditable = false; el.classList.remove('editable');
+        }
+      });
+      // special for image
+      const img = document.getElementById('foto-sekolah');
+      if(!dis && localStorage.getItem('sdt_admin')==='true'){ img.style.outline='3px dashed rgba(47,181,115,0.18)'; img.addEventListener('click', changeMainPhoto); }
+      else { img.style.outline=''; img.removeEventListener('click', changeMainPhoto); }
+      // if saving (dis === true while editing was on), persist
+      if(dis){ saveEdits(); }
+    }
+
+    function changeMainPhoto(){
+      const url = prompt('Masukkan URL gambar baru untuk foto sekolah:');
+      if(url) { document.getElementById('foto-sekolah').src = url; localStorage.setItem('sdt_foto', url); }
+    }
+
+    function saveEdits(){
+      const ids = ['beranda-desc','visi','misi','sejarah','struktur','kurikulum','unggulan','inovasi','news1-title','news1','news2-title','news2'];
+      ids.forEach(id=>{ const el = document.getElementById(id); if(el) localStorage.setItem('sdt_'+id, el.innerHTML);});
+      // photo handled separately
+      alert('Perubahan disimpan di browser (localStorage).');
+    }
+
+    // load saved edits from localStorage
+    window.addEventListener('load', ()=>{
+      const ids = ['beranda-desc','visi','misi','sejarah','struktur','kurikulum','unggulan','inovasi','news1-title','news1','news2-title','news2'];
+      ids.forEach(id=>{ const key='sdt_'+id; if(localStorage.getItem(key)){ const el=document.getElementById(id); if(el) el.innerHTML = localStorage.getItem(key); }});
+      if(localStorage.getItem('sdt_foto')) document.getElementById('foto-sekolah').src = localStorage.getItem('sdt_foto');
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault(); const target = document.querySelector(a.getAttribute('href')); if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // small accessibility: keyboard shortcut L to open login
+    document.addEventListener('keydown', (e)=>{ if(e.key.toLowerCase()==='l'){ loginModal.classList.remove('hidden'); pwd.focus(); } });
+  </script>
+</body>
+</html>
